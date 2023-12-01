@@ -1,0 +1,10 @@
+To determine if an input value is present in the request using the given code snippet,
+ you can utilize the has() method. Here's how:
+ Route::get('product',function(){
+        if (request()->has('page')) {
+            // page input exists in the request
+            dd(request()->input('page'));
+        } else {
+            // page input does not exist in the request
+            dd('page input not found');
+        }    });

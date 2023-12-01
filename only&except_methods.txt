@@ -1,0 +1,13 @@
+the only() and except() methods
+ are used in the context of working 
+with request data to filter and retrieve specific input values.
+ Route::get('product', function () {
+        $filteredInput =request()->only(['limit', 'page']);
+        // Retrieves only the specified keys: limit,page
+    
+        $inputExcept =request()->except(['limit', 'page']);
+        // Retrieves all keys except limit and page
+    
+        // Displaying the filtered input for demonstration purposes
+        dd($filteredInput, $inputExcept);
+    });

@@ -1,0 +1,13 @@
+Retreive boolean input values
+you can retrieve boolean input 
+by utilizing the boolean() method on the Request object
+ Route::get('product', function () {
+    // is_featured is a parameter = true or false
+        $isFeatured = request()->boolean('is_featured');
+    
+        if ($isFeatured) {
+            return "The product is featured.";
+        } else {
+            return "The product is not featured.";
+        }
+    });

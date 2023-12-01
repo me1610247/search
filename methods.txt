@@ -1,0 +1,26 @@
+The whenHas() method is similar to whenFilled(),
+ but it checks for the existence of a specified input key in the request. If the input key exists
+    // Check if page input exists in the request
+  Route::get('product',function(){
+        request()->whenHas('page', function ($value) {
+            dd("Value of 'page': " . $value);
+        });
+        });
+// hasAny Check if any of the provided keys exist in the request
+    if (request()->hasAny(['page', 'limit'])) {
+        // At least one of page or limit exists in the request
+    } else {
+        // Neither page nor limit exists in the request
+    }
+ // Filled Check if page input exists and has a non-empty value in the request
+    if (request()->filled('page')) {
+        // page exists and has a non-empty value in the request
+    } else {
+        // page does not exist or has an empty value in the request
+    }
+// whenFilled Execute a callback when 'hamada' input exists and is not empty
+    request()->whenFilled('page', function ($value) {
+        // Execute this callback when 'page' exists and is not empty in the request
+        dd("Value of 'page' when filled: " . $value);
+    });
+
